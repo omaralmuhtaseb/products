@@ -33,7 +33,7 @@
                             <form method="POST" action="{{route('users.destroy',['id'=>$user->id])}}">
                                 @csrf
                                 @method('DELETE')
-                                <button id="delete-btn" type="submit" onclick="return confirm('هل تريد حذف السجل؟')" >
+                                <button id="delete-btn" type="submit" onclick="return confirm('Are you sure to delete this record ?')" >
                                     <i  class="fa fa-trash delete-icon"></i>
                                 </button>
                             </form>

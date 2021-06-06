@@ -7,6 +7,16 @@ use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
+
+
+    public function UserProducts($id){
+       $user = User::with('Products')
+           ->findOrFail($id);
+
+
+       return view('users.user-products',compact('user'));
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -81,6 +91,19 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try{
+            User::findOrFail($id)
+                ->delete();
+
+            flash('User Deleted successfully!')->success();
+
+            return redirect()->back();
+        }catch (\Exception $e){
+
+            flash('Cannot delete a user have a products!')->error();
+
+            return redirect()->back();
+        }
+
     }
 }

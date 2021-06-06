@@ -2,7 +2,6 @@
 
 @section('content')
 
-    @include('includes.messages')
     <div class="container">
         <div class="row justify-content-center">
 
@@ -25,7 +24,12 @@
 
 
                             </div>
-                            
+
+                            <div class="form-group">
+                                <label for="quantity">Image</label>
+                                <input type="file" name="image" class="form-control-file">
+                            </div>
+
                             <div class="form-group">
                                 <label for="quantity">Quantity</label>
                                 <input type="number" name="quantity" class="form-control">
@@ -36,13 +40,24 @@
                                 <input type="number" step="0.01" name="price" min="1" class="form-control">
                             </div>
 
+                            <div class="col-md-9">
+                                <label for="quantity">Categories</label>
+                                <div class="container rolesPermissions">
 
-                            <select class="js-example-basic-multiple" name="states[]" multiple="multiple">
-                                <option value="AL">Alabama</option>
-                                ...
-                                <option value="WY">Wyoming</option>
-                            </select>
-                            <button type="submit" class="form-group btn col-md-3 btn-primary">Save</button>
+
+                                    @foreach($categories as $category)
+                                    <label class="inline-flex items-center text-sm" >
+
+                                        <span class="ml-1">{{$category->name}}</span>
+
+                                        <input type="checkbox" class="form-checkbox" name="category[]" value="{{$category->id}}">
+                                    </label>
+                                    @endforeach
+
+                                </div>
+                            </div>
+
+                                    <button type="submit" class="form-group btn col-md-3 btn-primary">Save</button>
                         </form>
                     </div>
                 </div>

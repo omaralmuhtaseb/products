@@ -11,13 +11,14 @@
                     <th scope="col">Qty</th>
                     <th scope="col">Price</th>
                     <th scope="col">Created at </th>
+                    <th scope="col">Image </th>
                     <th scope="col">Edit </th>
                     <th scope="col">Delete</th>
 
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($products as $product )
+                @foreach($user->Products as $product )
 
                     <tr>
                         <td>  {{$product->id}}</td>
@@ -29,6 +30,8 @@
                         <td>  {{$product->price}} JD</td>
 
                         <td>  {{$product->created_at->toFormattedDateString()}}</td>
+
+                        <td>{{$product->getImage}}</td>
 
                         <td><a href="{{route('product.edit',['id'=>$product->id])}}"><i class="fa fa-edit"></i></a></td>
                         <td>
@@ -46,7 +49,6 @@
                 </tbody>
             </table>
 
-            {{$products->render()}}
         </div>
     </div>
 

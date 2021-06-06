@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Http\Requests\ProductRequest;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -27,7 +29,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        $categories = Category::all();
+        return view('products.create',compact('categories'));
     }
 
     /**
@@ -38,7 +41,20 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
-        //
+
+        Product::create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'quantity' => $request->quantity,
+            'price' => $request->price,
+            'creator_id'=> Auth::user()->id
+        ]);
+
+        //PostObserver
+
+        flash('Product created successfully!')->success();
+
+        return redirect()->back();
     }
 
     /**

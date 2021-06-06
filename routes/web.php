@@ -28,6 +28,7 @@ Route::prefix('users')->as('users.')->group(function (){
     Route::get('edit/{id}','UsersController@edit')->name('edit');
     Route::put('update/{id}','UsersController@update')->name('update');
     Route::delete('destroy/{id}','UsersController@destroy')->name('destroy');
+    Route::get('user-products/{id}','UsersController@UserProducts');
 
 });
 

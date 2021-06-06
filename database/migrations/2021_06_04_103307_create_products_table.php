@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->integer('quantity')->default(1);
             $table->decimal('price')->default(1);
             $table->string('image');
-            $table->tinyInteger('creator_id');
+            $table->foreignId('creator_id')->references('id')->on('users')->onDelete('restrict')->onUpdate('cascade');
             $table->timestamps();
         });
     }
