@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <a href="{{route('category.create')}}" class="btn btn-primary mb-2 ml-5">Create Category <i class="fa fa-plus"></i></a>
 
     <div class="container">
         <div class="row">
@@ -9,6 +10,7 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Name</th>
+                    <th scope="col">Total Products</th>
                     <th scope="col">Created at </th>
                     <th scope="col">Edit </th>
                     <th scope="col">Delete</th>
@@ -22,8 +24,11 @@
                         <td>  {{$category->id}}</td>
 
                         <td>  {{$category->name}}</td>
+                        <td>{{$category->ProductCount}}</td>
+
 
                         <td>  {{$category->created_at->toFormattedDateString()}}</td>
+
 
                         <td><a href="{{route('category.edit',['id'=>$category->id])}}"><i class="fa fa-edit"></i></a></td>
                         <td>

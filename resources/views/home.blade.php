@@ -9,7 +9,7 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <div class="col-md-3 ">
                     <a href="{!! action('CategoryController@index') !!}">
 
                     <div class="box-part text-center">
@@ -28,7 +28,7 @@
                     </a>
                 </div>
 
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <div class="col-md-3 ">
 
                     <a href="{!! action('UsersController@index') !!}">
 
@@ -49,14 +49,14 @@
                     </a>
                 </div>
 
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <div class="col-md-3 ">
                     <a href="{!! action('ProductController@index') !!}">
 
                     <div class="box-part text-center">
 
                         <i class="fa fa-product-hunt fa-3x" aria-hidden="true"></i>
                         <div class="title">
-                            <h4>Products</h4>
+                            <h4>Total Products</h4>
                         </div>
 
                         <div class="text">
@@ -68,6 +68,24 @@
                     </a>
                 </div>
 
+                <div class="col-md-3 ">
+                    <a href="{!! action('UsersController@UserProducts',['id'=>\Illuminate\Support\Facades\Auth::user()->id]) !!}">
+
+                        <div class="box-part text-center">
+
+                            <i class="fa fa-eye fa-3x" aria-hidden="true"></i>
+                            <div class="title">
+                                <h4>Your Products</h4>
+                            </div>
+
+                            <div class="text">
+                                <b class="count ">{{$user_products_count}}</b>
+                            </div>
+
+
+                        </div>
+                    </a>
+                </div>
                 </div>
 
             </div>

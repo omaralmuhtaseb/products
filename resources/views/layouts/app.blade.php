@@ -36,9 +36,7 @@
                     @auth
                     <ul class="navbar-nav mr-auto">
 
-                        <li>
-                            <a href="{{url('users/user-products/'.\Illuminate\Support\Facades\Auth::user()->id)}}" class="btn btn-outline-info"> Your products </a>
-                        </li>
+
                     </ul>
 
                     @endauth

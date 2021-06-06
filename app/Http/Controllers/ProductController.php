@@ -88,7 +88,20 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product = Product::findOrFail($id);
+        $product->update([
+            'name' => $request->name,
+            'description' => $request->description,
+            'quantity' => $request->quantity,
+            'price' => $request->price,
+            'creator_id'=> Auth::user()->id
+        ]);
+
+        //PostObserver
+
+        flash('Product updated successfully!')->success();
+
+        return redirect()->back();
     }
 
     /**
@@ -99,6 +112,10 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Product::findOrFail($id)->delete();
+
+        flash('Product deleted successfully!')->success();
+
+        return redirect()->back();
     }
 }

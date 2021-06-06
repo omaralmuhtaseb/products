@@ -2,7 +2,12 @@
 
 @section('content')
     <div class="container">
+
+        <a href="{{route('users.create')}}" class="btn btn-primary mb-2 ml-5">Create User <i class="fa fa-plus"></i></a>
+
+
         <div class="row">
+
             <table class="table table-striped">
                 <thead>
                 <tr>

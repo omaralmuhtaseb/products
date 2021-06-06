@@ -45,19 +45,16 @@
                                 <div class="container rolesPermissions">
 
 
-                                    @foreach($categories as $category)
-                                    <label class="inline-flex items-center text-sm" >
-
-                                        <span class="ml-1">{{$category->name}}</span>
-
-                                        <input type="checkbox" class="form-checkbox" name="category[]" value="{{$category->id}}">
-                                    </label>
-                                    @endforeach
-
+                                    <select class="form-control" multiple="multiple" id="categories">
+                                        <option selected="selected">orange</option>
+                                        <option>white</option>
+                                        <option selected="selected">purple</option>
+                                    </select>
                                 </div>
                             </div>
 
-                                    <button type="submit" class="form-group btn col-md-3 btn-primary">Save</button>
+                             <button type="submit" class="form-group btn col-md-3 btn-primary">Save</button>
+
                         </form>
                     </div>
                 </div>
@@ -69,13 +66,23 @@
 @endsection
 
 @section('script')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/css/select2.min.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
-        $('select').select2({ width: '100%', placeholder: "Select an Option", allowClear: true });
-
+        $("#categories").select2({
+            minimumInputLength: 1,
+            tags: true,
+            dir: "rtl",
+            placeholder: "قم بإختيار الأوسمة",
+            ajax: {
+                url: "",
+                dataType: 'json',
+                data: function (term) {
+                    return {
+                        term: term
+                    };
+                }
+            }
+        });
     </script>
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-    <script>tinymce.init({selector:'textarea'});</script>
     @stop

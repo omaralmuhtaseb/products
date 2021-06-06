@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,8 @@ class UsersController extends Controller
     public function index()
     {
 
-        return view('users.index')->withUsers(User::paginate(10));
+        return view('users.index')
+            ->withUsers(User::paginate(10));
     }
 
     /**
@@ -35,18 +37,27 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+        return view('users.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     *
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        //
+        User::create([
+            'full_name' => $request['full_name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+        ]);
+
+        flash('User created successfully!')->success();
+
+        return redirect()->back();
+
     }
 
     /**
@@ -68,7 +79,12 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $user = User::findOrFail($id);
+
+        return view('users.edit')
+            ->withUser($user);
+
     }
 
     /**
@@ -78,7 +94,7 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserRequest $request, $id)
     {
         //
     }

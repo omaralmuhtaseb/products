@@ -23,7 +23,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::prefix('users')->as('users.')->group(function (){
 
     Route::get('create','UsersController@create')->name('create');
-    Route::get('store','UsersController@store')->name('store');
+    Route::post('store','UsersController@store')->name('store');
     Route::get('/','UsersController@index')->name('index');
     Route::get('edit/{id}','UsersController@edit')->name('edit');
     Route::put('update/{id}','UsersController@update')->name('update');
