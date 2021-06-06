@@ -1,0 +1,43 @@
+body{
+    background: #eee;
+}
+span{
+    font-size:15px;
+}
+a{
+    text-decoration:none;
+    color: #0062cc;
+    border-bottom:2px solid #0062cc;
+}
+.box{
+    padding:60px 0px;
+}
+
+.box-part{
+    background:#FFF;
+    padding:25px 8px;
+    margin:30px 0px;
+    border-radius: 45px;
+
+}
+.box-part:hover{
+    -webkit-box-shadow: 0px 0px 11px 2px #000000;
+    box-shadow: 0px 0px 11px 2px #000000;
+    transition: 0.7s all;
+}
+.text{
+    margin:20px 0px;
+}
+
+.fa{
+    color:#4183D7;
+}
+
+.count{
+   color: #4183d7;
+    font-size: x-large;
+}
+
+a:link {
+    text-decoration: none;
+}
