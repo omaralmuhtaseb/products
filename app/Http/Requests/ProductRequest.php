@@ -27,7 +27,7 @@ class ProductRequest extends FormRequest
             case 'POST':
                 return [
                     'name' => 'required',
-                    'category' => 'required|min:1',
+//                    'category' => 'required|min:1',
                 ];
 
 

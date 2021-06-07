@@ -37,7 +37,30 @@
 
                         <td>  {{$product->price}} </td>
 
-                        <td>  {{$product->id}} </td>
+                        <td>
+
+                            <a type="button" href="" data-toggle="modal" data-target="#myModal_{{$product->id}}">Image</a>
+
+
+                            <div class="modal fade" id="myModal_{{$product->id}}" role="dialog">
+                                <div class="modal-dialog">
+
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <p> {{ucfirst($product->name)}}&nbsp;Picture</p>
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                                        </div>
+                                        <div  class="modal-body ml_63">
+                                            <img src="{{$product->ProductImage}}" width="280px" height="250px">
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </td>
 
 
                         <td><a href="{{route('product.edit',['id'=>$product->id])}}"><i class="fa fa-edit"></i></a></td>

@@ -10,14 +10,16 @@
                     <div class="card-header">Create Category</div>
 
                     <div class="card-body">
-                        <form action="{{route('category.store')}}" method="post" enctype="multipart/form-data">
+                        {{Form::open(['route'=>'category.store','method'=>'POST','files'=>true])}}
+
                             @csrf
                             <div class="form-group">
                                 <label for="Name">Name</label>
-                                 <input type="text" class="form-control" name="name">
+                                {!! Form::text('name',null,array('class'=>'form-control')) !!}
                             </div>
-                            <button type="submit" class="form-group btn col-md-3 btn-primary">Save</button>
-                        </form>
+                        {!! Form::submit('Save',array('class'=>'form-group btn col-md-3 btn-primary')) !!}
+
+                        {{Form::close()}}
                     </div>
                 </div>
             </div>

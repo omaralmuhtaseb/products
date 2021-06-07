@@ -30,10 +30,8 @@ class HomeController extends Controller
         $categories_count = Category::count();
         $products_count = Product::count();
         $users_count = User::count();
-        $user_products_count = count(Auth::user()->Products);
 
         return view('home',
-            compact('categories_count','products_count',
-                    'users_count','user_products_count'));
+            compact('categories_count','products_count','users_count'));
     }
 }

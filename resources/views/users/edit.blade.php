@@ -10,30 +10,33 @@
                     <div class="card-header">Edit User</div>
 
                     <div class="card-body">
-                        <form action="{{route('users.update',['id'=>$user->id])}}" method="post" enctype="multipart/form-data">
-                            @csrf
-                            @method('PUT')
-                            <div class="form-group">
-                                <label for="Name">Full name</label>
-                                <input type="text" class="form-control" value="{{$user->full_name}}" name="full_name">
-                            </div>
+                        {!! Form::open(array('route'=>['users.update','id'=>$user->id],'method'=>'POST')) !!}
 
-                            <div class="form-group">
-                                <label for="Name">Email</label>
-                                <input type="email" class="form-control" value="{{$user->email}}" name="email">
-                            </div>
+                        @csrf
+                        <div class="form-group">
+                            <label for="Name">Full name</label>
+                            {!! Form::text('full_name',$user->full_name,array('class'=>'form-control')) !!}
+                        </div>
 
-                            <div class="form-group">
-                                <label for="Name">Password</label>
-                                <input type="password" class="form-control"  name="password">
-                            </div>
+                        <div class="form-group">
+                            <label for="Name">Email</label>
+                            {!! Form::email('email',$user->email,array('class'=>'form-control')) !!}
+                        </div>
 
-                            <div class="form-group">
-                                <label for="Name">Confirm Password</label>
-                                <input type="password" class="form-control" name="password_confirmation">
-                            </div>
-                            <button type="submit" class="form-group btn col-md-3 btn-primary">Save</button>
-                        </form>
+                        <div class="form-group">
+                            <label for="Name">Password</label>
+                            {{ Form::password('password',array('class' => 'form-control')) }}
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Name">Confirm Password</label>
+                            {{ Form::password('password_confirmation',array('class' => 'form-control')) }}
+
+                        </div>
+                        {!! Form::submit('Update',array('class'=>'form-group btn col-md-3 btn-primary')) !!}
+
+                        {{Form::close()}}
+
                     </div>
                 </div>
             </div>

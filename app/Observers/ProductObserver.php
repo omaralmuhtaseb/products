@@ -5,6 +5,7 @@ namespace App\Observers;
 use App\Product;
 use App\Traits\FunctionsTrait;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductObserver
 {    use FunctionsTrait;
@@ -41,9 +42,12 @@ class ProductObserver
 
 
     public function updating(Product $product){
-        if ($this->request->has('image') )
-            $product->image = $this->SaveImage($this->request->image,'products-images');
+        if ($this->request->has('image') ){
 
+            $this->RemoveImage($product->image ,'products-images');
+
+            $product->image = $this->SaveImage($this->request->image,'products-images');
+        }
 
     }
 

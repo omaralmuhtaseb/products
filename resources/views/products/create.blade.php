@@ -11,51 +11,54 @@
                     <div class="card-header">Create Product</div>
 
                     <div class="card-body">
-                        <form action="{{route('product.store')}}" method="post" enctype="multipart/form-data">
+                        {!! Form::open(['route'=>'product.store','method'=>'POST','files'=>true]) !!}
                             @csrf
                             <div class="form-group">
                                 <label for="Name">Name</label>
-                                 <input type="text" class="form-control" placeholder="Enter Product Name" name="name">
+                                {!! Form::text('name',null,array('class'=>'form-control','placeholder'=>'Enter Product Name','required')) !!}
                             </div>
 
                             <div class="form-group">
                                 <label for="content">Description</label>
-                                <textarea rows="8" cols="8" type="text" class="form-control" name="description"></textarea>
+                                {!! Form::textarea('description',null,array('class'=>'form-control','rows'=>8,'cols'=>8)) !!}
 
 
                             </div>
 
                             <div class="form-group">
                                 <label for="quantity">Image</label>
-                                <input type="file" name="image" class="form-control-file">
+                                {!! Form::file('image',array('class'=>'form-control-file')) !!}
                             </div>
 
                             <div class="form-group">
                                 <label for="quantity">Quantity</label>
-                                <input type="number" name="quantity" class="form-control">
+                                {!! Form::number('quantity',null,array('class'=>'form-control')) !!}
+
                             </div>
 
                             <div class="form-group">
                                 <label for="quantity">Price</label>
-                                <input type="number" step="0.01" name="price" min="1" class="form-control">
+                                {!! Form::number('price',null,array('class'=>'form-control','step'=>0.01)) !!}
+
                             </div>
 
-                            <div class="col-md-9">
-                                <label for="quantity">Categories</label>
-                                <div class="container rolesPermissions">
+                            {{--<div class="form-group">--}}
+                                {{--<label for="quantity">Categories</label>--}}
 
 
-                                    <select class="form-control" multiple="multiple" id="categories">
-                                        <option selected="selected">orange</option>
-                                        <option>white</option>
-                                        <option selected="selected">purple</option>
-                                    </select>
-                                </div>
-                            </div>
 
-                             <button type="submit" class="form-group btn col-md-3 btn-primary">Save</button>
+                                    {{--<select class="form-control" multiple="multiple" id="category">--}}
+                                        {{--<option selected="selected">orange</option>--}}
+                                        {{--<option>white</option>--}}
+                                        {{--<option selected="selected">purple</option>--}}
+                                    {{--</select>--}}
 
-                        </form>
+                            {{--</div>--}}
+
+                        {!! Form::submit('Save',array('class'=>'form-group btn col-md-3 btn-primary')) !!}
+
+                        {{ Form::close()  }}
+
                     </div>
                 </div>
             </div>

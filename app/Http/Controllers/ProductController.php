@@ -17,8 +17,10 @@ class ProductController extends Controller
      */
     public function index()
     {
+        $products = Product::latest('updated_at')->paginate(10);
+
         return view('products.index')
-            ->withProducts(Product::paginate(10));
+            ->withProducts($products);
 
     }
 
@@ -50,7 +52,7 @@ class ProductController extends Controller
             'creator_id'=> Auth::user()->id
         ]);
 
-        //PostObserver
+
 
         flash('Product created successfully!')->success();
 
@@ -76,7 +78,9 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::findOrFail($id);
+
+        return view('products.edit',compact('product'));
     }
 
     /**
@@ -88,6 +92,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $product = Product::findOrFail($id);
         $product->update([
             'name' => $request->name,
@@ -96,8 +101,6 @@ class ProductController extends Controller
             'price' => $request->price,
             'creator_id'=> Auth::user()->id
         ]);
-
-        //PostObserver
 
         flash('Product updated successfully!')->success();
 

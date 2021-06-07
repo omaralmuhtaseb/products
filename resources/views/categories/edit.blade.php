@@ -11,15 +11,15 @@
                     <div class="card-header">Edit Category</div>
 
                     <div class="card-body">
-                        <form action="{{route('category.update',['id'=>$category->id])}}" method="post" enctype="multipart/form-data">
+                        {!! Form::open(array('route'=>['category.update','id'=>$category->id],'method'=>'POST')) !!}
                             @csrf
                             @method('PUT')
                             <div class="form-group">
                                 <label for="Name">Name</label>
-                                <input type="text" class="form-control" value="{{$category->name}}" name="name">
+                                {!! Form::text('name',$category->name,array('class'=>'form-control')) !!}
                             </div>
-                            <button type="submit" class="form-group btn col-md-3 btn-primary">Update</button>
-                        </form>
+
+                        {{Form::submit('Update',array('class'=>'form-group btn col-md-3 btn-primary'))}}
                     </div>
                 </div>
             </div>

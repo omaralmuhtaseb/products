@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Product extends Model
 {
@@ -13,9 +14,17 @@ class Product extends Model
 
     public function Category(){
         return $this->belongsToMany(Category::class,
-            'products_categories', 'product_id','category_id');
+            'products_categories', 'product_id',
+            'category_id');
 
     }
+
+
+    public function getProductImageAttribute(){
+
+        return asset('mawdoo3/products-images').'/'. $this->image ;
+    }
+
 
 
 }
