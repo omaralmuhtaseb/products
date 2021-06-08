@@ -28,7 +28,6 @@ class HomeController extends Controller
     public function index()
     {
         $report = (new ProductReport())->WeekReport();
-        $report= json_decode($report) ;
 
         $categories_count = Category::count();
         $products_count = Product::count();

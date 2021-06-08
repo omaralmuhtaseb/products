@@ -14,13 +14,13 @@
 <script>
 
     const labels = [
-        '{{$report[0]->first_day ?? ''}}',
-        '{{$report[1]->second_day ?? ''}}',
-        '{{$report[2]->third_day ?? ''}}',
-        '{{$report[3]->fourth_day ?? ''}}',
-        '{{$report[4]->fifth_day ?? ''}}',
-        '{{$report[5]->sixth_day ?? ''}}',
-        '{{$report[6]->seventh_day ?? ''}}'
+        '{{$report[0]->date ?? ''}}',
+        '{{$report[1]->date ?? ''}}',
+        '{{$report[2]->date ?? ''}}',
+        '{{$report[3]->date ?? ''}}',
+        '{{$report[4]->date ?? ''}}',
+        '{{$report[5]->date ?? ''}}',
+        '{{$report[6]->date ?? ''}}'
     ];
     const data = {
         labels: labels,
@@ -29,13 +29,13 @@
             backgroundColor: 'white',
             borderColor: 'rgb(255, 99, 132)',
             data: [
-                {{$report[0]->first_day_count ?? ''}},
-                {{$report[1]->second_day_count ?? ''}},
-                {{$report[2]->third_day_count ?? ''}},
-                {{$report[3]->fourth_day_count ?? ''}},
-                {{$report[4]->fifth_day_count ?? ''}},
-                {{$report[5]->sixth_day_count ?? ''}},
-                {{$report[6]->seventh_day_count ?? ''}},
+                {{$report[0]->count ?? ''}},
+                {{$report[1]->count ?? ''}},
+                {{$report[2]->count ?? ''}},
+                {{$report[3]->count ?? ''}},
+                {{$report[4]->count ?? ''}},
+                {{$report[5]->count ?? ''}},
+                {{$report[6]->count ?? ''}},
                ]
         }]
     };
