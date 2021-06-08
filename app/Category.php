@@ -18,4 +18,8 @@ class Category extends Model
         return $this->Product()->count() ;
     }
 
+    public function scopeSelection($query){
+
+        return $query->select('id','name')->get();
+    }
 }

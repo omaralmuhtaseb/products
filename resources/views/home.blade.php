@@ -68,10 +68,14 @@
                     </a>
                 </div>
 
+
                 </div>
 
+
+            @include('chart')
             </div>
-        </div>
+
+    </div>
 
 
 @endsection

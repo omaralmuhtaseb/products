@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Http\Reports\ProductReport;
 use App\Product;
 use App\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+
 
 class HomeController extends Controller
 {
@@ -27,11 +27,19 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $report = (new ProductReport())->WeekReport();
+        $report= json_decode($report) ;
+
         $categories_count = Category::count();
         $products_count = Product::count();
         $users_count = User::count();
 
-        return view('home',
-            compact('categories_count','products_count','users_count'));
+        return view('home')
+            ->with('categories_count',$categories_count)
+            ->with('products_count',$products_count)
+            ->with('users_count',$users_count)
+            ->with('report',$report);
     }
+
+
 }

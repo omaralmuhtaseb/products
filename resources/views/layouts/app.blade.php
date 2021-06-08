@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}" ></script>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -22,7 +22,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="menubar navbar navbar-expand-md navbar-light bg-white shadow-sm col-sm-12">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -34,7 +34,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     @auth
-                    <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="navbar_items"><a href="{!! action('ProductController@index') !!}">Products</a></li>
+                        <li class="navbar_items"><a href="{!! action('UsersController@index') !!}">Users</a></li>
+                        <li class="navbar_items"><a href="{!! action('CategoryController@index') !!}">Categories</a></li>
 
 
                     </ul>

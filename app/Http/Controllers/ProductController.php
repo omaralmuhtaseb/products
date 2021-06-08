@@ -31,7 +31,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
+        $categories = Category::Selection();
         return view('products.create',compact('categories'));
     }
 

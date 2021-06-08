@@ -26,7 +26,7 @@
 
                         </div>
                         <img src="{{$product->ProductImage}}" width="240px" height="185px">
-
+                        <h6 style="color: darkred">Note that if you upload new picture , the old one will be deleted</h6>
                         <div class="form-group">
                             <label for="quantity">Image</label>
                             {!! Form::file('image',array('class'=>'form-control-file')) !!}

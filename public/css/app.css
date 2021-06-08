@@ -118,6 +118,29 @@ p {
   margin-bottom: 1rem;
 }
 
+.menubar{
+  border-bottom: 1px solid #0ca2ec;
+  border-top: 1px solid #14b4ec;
+
+}
+a{
+  text-decoration:none;
+  color: #0062cc;
+  border-bottom:1px solid #0062cc;
+}
+.navbar_items{
+  position: relative;
+  left: 250px;
+  padding: 15px;
+
+}
+.navbar_items>a{
+  border-bottom: 0.5px solid #2f9dbf
+}
+.navbar_items>a:hover{
+  text-decoration: none;
+
+}
 abbr[title],
 abbr[data-original-title] {
   text-decoration: underline;

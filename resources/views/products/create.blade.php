@@ -42,18 +42,18 @@
 
                             </div>
 
-                            {{--<div class="form-group">--}}
-                                {{--<label for="quantity">Categories</label>--}}
+                            <div class="form-group">
+                                <label for="quantity">Categories</label>
 
 
 
-                                    {{--<select class="form-control" multiple="multiple" id="category">--}}
-                                        {{--<option selected="selected">orange</option>--}}
-                                        {{--<option>white</option>--}}
-                                        {{--<option selected="selected">purple</option>--}}
-                                    {{--</select>--}}
+                                    <select class="form-control" multiple="multiple" id="category">
+                                       @foreach($categories as $category)
+                                            <option value="{{$category->id}}">{{$category->name}}</option>
+                                           @endforeach
+                                    </select>
 
-                            {{--</div>--}}
+                            </div>
 
                         {!! Form::submit('Save',array('class'=>'form-group btn col-md-3 btn-primary')) !!}
 
