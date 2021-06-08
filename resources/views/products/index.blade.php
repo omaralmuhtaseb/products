@@ -39,7 +39,7 @@
 
                         <td>
 
-                            <a type="button" href="" data-toggle="modal" data-target="#myModal_{{$product->id}}">Image</a>
+                            <a type="button" href="" data-toggle="modal" data-target="#myModal_{{$product->id}}"><i class="fa fa-image fa-1x"></i></a>
 
 
                             <div class="modal fade" id="myModal_{{$product->id}}" role="dialog">
@@ -52,7 +52,7 @@
 
                                         </div>
                                         <div  class="modal-body ml_63">
-                                            <img src="{{$product->ProductImage}}" width="280px" height="250px">
+                                            <img src="{{$product->ProductImage}}" onerror="this.src='/mawdoo3/products-images/noimage.png'" width="280px" height="250px">
 
                                         </div>
 

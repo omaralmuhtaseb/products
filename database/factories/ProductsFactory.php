@@ -10,8 +10,10 @@ $factory->define(\App\Product::class, function (Faker $faker) {
         'name' => $faker->colorName,
         'description' =>$faker->sentence,
         'quantity'=>$faker->numberBetween(1,100),
-        'price' =>$faker->randomFloat(3,1,2000) ,
-        'image' =>'https://upload.wikimedia.org/wikipedia/commons/d/d7/Mawdoo3_Logo.png',
-        'creator_id' =>$faker->numberBetween(1,100)
+        'price' =>$faker->randomFloat(3,1,1000) ,
+        'image' =>'2021-chevrolet-tahoe-promo.jpg',
+        'creator_id' =>$faker->numberBetween(1,20),
+        'created_at' =>$faker->dateTimeBetween('01-06-2021','07-06-2021'),
+        'updated_at' =>$faker->dateTimeBetween('01-06-2021','07-06-2021')
     ];
 });

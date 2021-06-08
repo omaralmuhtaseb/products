@@ -16,7 +16,7 @@
 
                         <i class="fa fa-cube nav-icon fa-3x" aria-hidden="true"></i>
                         <div class="title">
-                            <h4>Categories</h4>
+                            <h4>Total Categories</h4>
                         </div>
 
                         <div class="text">
@@ -36,7 +36,7 @@
 
                         <i class="fa fa-users nav-icon fa-3x" aria-hidden="true"></i>
                         <div class="title">
-                            <h4>Users</h4>
+                            <h4>Total Users</h4>
                         </div>
 
                         <div class="text">
@@ -56,7 +56,7 @@
 
                         <i class="fa fa-product-hunt fa-3x" aria-hidden="true"></i>
                         <div class="title">
-                            <h4>Products</h4>
+                            <h4>Total Products</h4>
                         </div>
 
                         <div class="text">

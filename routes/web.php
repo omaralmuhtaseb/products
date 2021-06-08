@@ -57,8 +57,6 @@ Route::prefix('products')->as('product.')->group(function (){
 
 
 
-
-
 Route::get('user/factory',function (){
     factory(App\User::class, 100)->create();
 });
