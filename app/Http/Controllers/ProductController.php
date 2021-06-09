@@ -79,8 +79,9 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::findOrFail($id);
+        $categories = Category::Selection();
 
-        return view('products.edit',compact('product'));
+        return view('products.edit',compact('product','categories'));
     }
 
     /**
@@ -90,9 +91,8 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProductRequest $request, $id)
     {
-
         $product = Product::findOrFail($id);
         $product->update([
             'name' => $request->name,
@@ -101,6 +101,8 @@ class ProductController extends Controller
             'price' => $request->price,
             'creator_id'=> Auth::user()->id
         ]);
+
+        $product->touch();
 
         flash('Product updated successfully!')->success();
 

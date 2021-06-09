@@ -56,15 +56,4 @@ Route::prefix('products')->as('product.')->group(function (){
 });
 
 
-
-Route::get('user/factory',function (){
-    factory(App\User::class, 100)->create();
-});
-
-Route::get('category/factory',function (){
-    factory(App\Category::class, 20)->create();
-});
-
-Route::get('product/factory',function (){
-    factory(App\Product::class, 1000)->create();
-});
+Route::get('factory','HomeController@dataFactory');

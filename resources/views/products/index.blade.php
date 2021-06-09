@@ -21,10 +21,10 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($products as $product )
+                @foreach($products as $index=> $product )
 
                     <tr>
-                        <td>  {{$product->id}}</td>
+                        <td> {{$products->firstItem() +$index}}.</td>
 
                         <td>  {{$product->name}}</td>
 

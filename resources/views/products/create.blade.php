@@ -43,15 +43,15 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="quantity">Categories</label>
+                                <label for="Categories">Categories</label>
 
+                                <select class="js-select2-multi form-control" multiple="multiple" name="category[]">
+                                    @foreach($categories as $category)
 
+                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                    @endforeach
+                                </select>
 
-                                    <select class="form-control" multiple="multiple" id="category">
-                                       @foreach($categories as $category)
-                                            <option value="{{$category->id}}">{{$category->name}}</option>
-                                           @endforeach
-                                    </select>
 
                             </div>
 
@@ -72,20 +72,17 @@
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
-        $("#categories").select2({
-            minimumInputLength: 1,
-            tags: true,
-            dir: "rtl",
-            placeholder: "قم بإختيار الأوسمة",
-            ajax: {
-                url: "",
-                dataType: 'json',
-                data: function (term) {
-                    return {
-                        term: term
-                    };
-                }
-            }
+        $(document).ready(function() {
+
+            $(".js-select2").select2();
+
+            $(".js-select2-multi").select2();
+
+            $(".large").select2({
+                dropdownCssClass: "big-drop",
+                scrollAfterSelect: true
+            });
+
         });
     </script>
     @stop

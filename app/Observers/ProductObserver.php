@@ -49,6 +49,7 @@ class ProductObserver
             $product->image = $this->SaveImage($this->request->image,'products-images');
         }
 
+
     }
 
     /**
@@ -60,7 +61,8 @@ class ProductObserver
     public function updated(Product $product)
     {
         if ($this->request->has('category') )
-            $product->Category->sync($this->request['category']);
+            $product->Category()->sync($this->request['category']);
+
     }
 
     /**

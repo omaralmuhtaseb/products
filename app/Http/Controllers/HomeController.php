@@ -6,6 +6,7 @@ use App\Category;
 use App\Http\Reports\ProductReport;
 use App\Product;
 use App\User;
+use Illuminate\Support\Facades\DB;
 
 
 class HomeController extends Controller
@@ -17,7 +18,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('dataFactory');
     }
 
     /**
@@ -38,6 +39,26 @@ class HomeController extends Controller
             ->with('products_count',$products_count)
             ->with('users_count',$users_count)
             ->with('report',$report);
+    }
+
+
+    public function dataFactory(){
+
+        for ($i=1 ; $i<1000 ; $i++){
+            DB::table('products_categories')
+                ->insert(['product_id'=>random_int(1,1000),
+                    'category_id'=>random_int(1,20),
+                    'created_at'=>\Illuminate\Support\Carbon::now(),
+                    'updated_at'=>\Illuminate\Support\Carbon::now()
+
+                ]);
+        }
+        factory(User::class, 100)->create();
+
+        factory(Category::class, 20)->create();
+
+        factory(Product::class, 1000)->create();
+
     }
 
 

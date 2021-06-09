@@ -44,18 +44,29 @@
 
                         </div>
 
-                        {{--<div class="form-group">--}}
-                        {{--<label for="quantity">Categories</label>--}}
+                        <div class="form-group">
+                            <label for="Categories">Categories</label>
+
+                            <select class="js-select2-multi form-control" multiple="multiple" name="category[]">
+                                @foreach($categories as $category)
+
+                                        <option
+                                @foreach($product->Category as $prodCateg)
+
+
+                                {{$prodCateg->id == $category->id ?'SELECTED' :''}}
+                                @endforeach
+
+                                value="{{$category->id}}">{{$category->name}}
+                                        </option>
 
 
 
-                        {{--<select class="form-control" multiple="multiple" id="category">--}}
-                        {{--<option selected="selected">orange</option>--}}
-                        {{--<option>white</option>--}}
-                        {{--<option selected="selected">purple</option>--}}
-                        {{--</select>--}}
+                                @endforeach
+                            </select>
 
-                        {{--</div>--}}
+
+                        </div>
 
                         {!! Form::submit('Update',array('class'=>'form-group btn col-md-3 btn-primary')) !!}
 
@@ -75,20 +86,17 @@
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
-        $("#categories").select2({
-            minimumInputLength: 1,
-            tags: true,
-            dir: "rtl",
-            placeholder: "قم بإختيار الأوسمة",
-            ajax: {
-                url: "",
-                dataType: 'json',
-                data: function (term) {
-                    return {
-                        term: term
-                    };
-                }
-            }
+        $(document).ready(function() {
+
+            $(".js-select2").select2();
+
+            $(".js-select2-multi").select2();
+
+            $(".large").select2({
+                dropdownCssClass: "big-drop",
+                scrollAfterSelect: true
+            });
+
         });
     </script>
 @stop

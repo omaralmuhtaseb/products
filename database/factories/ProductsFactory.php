@@ -13,7 +13,7 @@ $factory->define(\App\Product::class, function (Faker $faker) {
         'price' =>$faker->randomFloat(3,1,1000) ,
         'image' =>'2021-chevrolet-tahoe-promo.jpg',
         'creator_id' =>$faker->numberBetween(1,20),
-        'created_at' =>$faker->dateTimeBetween('01-06-2021','07-06-2021'),
-        'updated_at' =>$faker->dateTimeBetween('01-06-2021','07-06-2021')
+        'created_at' =>$faker->dateTimeBetween('01-06-2021','08-06-2021'),
+        'updated_at' =>$faker->dateTimeBetween('01-06-2021','08-06-2021')
     ];
 });
