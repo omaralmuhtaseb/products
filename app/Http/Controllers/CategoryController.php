@@ -55,7 +55,6 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-
         return view('categories.edit')
             ->withCategory(Category::findOrFail($id));
     }
