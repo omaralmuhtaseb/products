@@ -65,9 +65,12 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function qtyDecrement($id)
     {
-        //
+        Product::find($id)->decrement('quantity');
+        flash('Product quantity updated successfully!')->success();
+
+        return redirect()->back();
     }
 
     /**

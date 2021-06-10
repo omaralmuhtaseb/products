@@ -15,8 +15,8 @@
                     <th scope="col">Quantity</th>
                     <th scope="col">Price</th>
                     <th scope="col">Image</th>
-                    <th scope="col">Edit </th>
-                    <th scope="col">Delete</th>
+                    <th scope="col">Operations </th>
+
 
                 </tr>
                 </thead>
@@ -63,13 +63,19 @@
                         </td>
 
 
-                        <td><a href="{{route('product.edit',['id'=>$product->id])}}"><i class="fa fa-edit"></i></a></td>
-                        <td>
+                        <td class="operations"><a href="{{route('product.edit',['id'=>$product->id])}}"><i class="fa fa-edit"></i></a>
+
                             <form method="POST" action="{{route('product.destroy',['id'=>$product->id])}}">
                                 @csrf
                                 @method('DELETE')
                                 <button id="delete-btn" type="submit" onclick="return confirm('Are you sure to delete this record ?')" >
                                     <i  class="fa fa-trash delete-icon"></i>
+                                </button>
+                            </form>
+                            <form method="get" action="{{route('product.qty.decrement',['id'=>$product->id])}}">
+
+                                <button id="minus-btn" type="submit" >
+                                    <i  class="fa fa-minus-square minus-icon "></i>
                                 </button>
                             </form>
                         </td>

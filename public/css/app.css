@@ -123,6 +123,17 @@ p {
   border-top: 1px solid #14b4ec;
 
 }
+.minus-icon{
+  color: #005cbf;
+}
+.operations{
+  display: inline-flex;
+}
+#minus-btn{
+  border: none;
+  background-color: transparent;
+
+}
 a{
   text-decoration:none;
   color: #0062cc;

@@ -52,6 +52,7 @@ Route::prefix('products')->as('product.')->group(function (){
     Route::get('edit/{id}','ProductController@edit')->name('edit');
     Route::put('update/{id}','ProductController@update')->name('update');
     Route::delete('destroy/{id}','ProductController@destroy')->name('destroy');
+    Route::get('qty-decrement/{id}','ProductController@qtyDecrement')->name('qty.decrement');
 
 });
 
